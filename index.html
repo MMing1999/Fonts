@@ -556,35 +556,49 @@
 
         // 动态加载字体
         function loadFontFace(fontFamily, fontFile) {
-            // 优先使用 jsDelivr CDN
+            // 优先使用 GitHub Raw 链接（最新数据）
+            const githubRawPath = `https://raw.githubusercontent.com/MMing1999/Fonts/main/fonts/${fontFile}`;
+            // 备用：jsDelivr CDN
             const cdnPath = `https://cdn.jsdelivr.net/gh/MMing1999/Fonts@main/fonts/${fontFile}`;
-            // 备用本地路径（GitHub Pages）
+            // 本地路径（GitHub Pages）
             const localPath = `/Fonts/fonts/${fontFile}`;
             const fileExtension = fontFile.split('.').pop().toLowerCase();
             const format = fileExtension === 'otf' ? 'opentype' : 'truetype';
             
-            // 先尝试 CDN 加载
+            // 先尝试 GitHub Raw 加载
             const fontFace = new FontFace(
                 fontFamily,
-                `url('${cdnPath}') format('${format}')`
+                `url('${githubRawPath}') format('${format}')`
             );
             
             fontFace.load().then(loaded => {
                 document.fonts.add(loaded);
-                console.log('字体加载成功（CDN）:', fontFamily, '(文件:', fontFile, ')');
+                console.log('字体加载成功（GitHub Raw）:', fontFamily, '(文件:', fontFile, ')');
             }).catch(error => {
-                console.warn('CDN加载失败，尝试本地加载:', fontFamily);
-                // CDN 失败时，尝试本地路径
-                const localFontFace = new FontFace(
+                console.warn('GitHub Raw 加载失败，尝试 jsDelivr CDN:', fontFamily);
+                // GitHub Raw 失败时，尝试 CDN
+                const cdnFontFace = new FontFace(
                     fontFamily,
-                    `url('${localPath}') format('${format}')`
+                    `url('${cdnPath}') format('${format}')`
                 );
                 
-                localFontFace.load().then(loaded => {
+                cdnFontFace.load().then(loaded => {
                     document.fonts.add(loaded);
-                    console.log('字体加载成功（本地）:', fontFamily, '(文件:', fontFile, ')');
-                }).catch(localError => {
-                    console.error('字体加载失败:', fontFamily, '(文件:', fontFile, ')', localError);
+                    console.log('字体加载成功（CDN）:', fontFamily, '(文件:', fontFile, ')');
+                }).catch(cdnError => {
+                    console.warn('CDN 加载失败，尝试本地路径:', fontFamily);
+                    // CDN 失败时，尝试本地路径
+                    const localFontFace = new FontFace(
+                        fontFamily,
+                        `url('${localPath}') format('${format}')`
+                    );
+                    
+                    localFontFace.load().then(loaded => {
+                        document.fonts.add(loaded);
+                        console.log('字体加载成功（本地）:', fontFamily, '(文件:', fontFile, ')');
+                    }).catch(localError => {
+                        console.error('字体加载失败（所有源都失败）:', fontFamily, '(文件:', fontFile, ')', localError);
+                    });
                 });
             });
         }
