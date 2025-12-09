@@ -34,6 +34,9 @@
             padding: 30px 40px;
             border-bottom: 1px solid #f0f0f0;
             flex-shrink: 0;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -47,7 +50,7 @@
 
         .header-right {
             flex: 1;
-            text-align: right;
+            text-align: left;
         }
 
         .header h1 {
@@ -1074,14 +1077,16 @@ ${cdnCode}`;
 
     <div class="container">
         <div class="header">
-            <div class="header-left">
-                <h1>字体分享</h1>
-                <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">by Maxxxx from <a href="https://haisnap.com" target="_blank" style="color: #667eea; text-decoration: none;">haisnap.com</a></p>
-            </div>
-            <div class="header-right">
-                <div class="header-disclaimer">
-                    <p>本网站对其所列之字体不拥有版权，字体版权归原作者所有。若您要将该字体用于商业目的，请联系作者获得授权，本网站对您使用该字体带来的一切后果不承担任何责任。</p>
-                    <p>本网站所列之字体及其所有相关信息均来自网络收集或网友提供，本网站对信息的准确性不提供任何担保，不承担任何责任。</p>
+            <div class="header-content">
+                <div class="header-left">
+                    <h1>字体分享</h1>
+                    <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">by Maxxxx from <a href="https://haisnap.com" target="_blank" style="color: #667eea; text-decoration: none;">haisnap.com</a></p>
+                </div>
+                <div class="header-right">
+                    <div class="header-disclaimer">
+                        <p>本网站对其所列之字体不拥有版权，字体版权归原作者所有。若您要将该字体用于商业目的，请联系作者获得授权，本网站对您使用该字体带来的一切后果不承担任何责任。</p>
+                        <p>本网站所列之字体及其所有相关信息均来自网络收集或网友提供，本网站对信息的准确性不提供任何担保，不承担任何责任。</p>
+                    </div>
                 </div>
             </div>
         </div>
