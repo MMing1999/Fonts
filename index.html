@@ -32,9 +32,22 @@
             background: white;
             color: #333;
             padding: 30px 40px;
-            text-align: left;
             border-bottom: 1px solid #f0f0f0;
             flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .header-left {
+            flex: 1;
+            text-align: left;
+        }
+
+        .header-right {
+            flex: 1;
+            text-align: right;
         }
 
         .header h1 {
@@ -50,12 +63,17 @@
         }
 
         .header-disclaimer {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #f0f0f0;
-            font-size: 0.85em;
-            color: #999;
-            line-height: 1.6;
+            font-size: 0.75em;
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        .header-disclaimer p {
+            margin: 0 0 8px 0;
+        }
+
+        .header-disclaimer p:last-child {
+            margin-bottom: 0;
         }
 
         .content {
@@ -1056,11 +1074,15 @@ ${cdnCode}`;
 
     <div class="container">
         <div class="header">
-            <h1>字体分享</h1>
-            <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">by Maxxxx from <a href="https://haisnap.com" target="_blank" style="color: #667eea; text-decoration: none;">haisnap.com</a></p>
-            <div class="header-disclaimer">
-                <p style="margin: 0 0 10px 0;">本网站对其所列之字体不拥有版权，字体版权归原作者所有。若您要将该字体用于商业目的，请联系作者获得授权，本网站对您使用该字体带来的一切后果不承担任何责任。</p>
-                <p style="margin: 0;">本网站所列之字体及其所有相关信息均来自网络掐集或网友提供，本网站对信息的准确性不提供任何担保，不承担任何责任。</p>
+            <div class="header-left">
+                <h1>字体分享</h1>
+                <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">by Maxxxx from <a href="https://haisnap.com" target="_blank" style="color: #667eea; text-decoration: none;">haisnap.com</a></p>
+            </div>
+            <div class="header-right">
+                <div class="header-disclaimer">
+                    <p>本网站对其所列之字体不拥有版权，字体版权归原作者所有。若您要将该字体用于商业目的，请联系作者获得授权，本网站对您使用该字体带来的一切后果不承担任何责任。</p>
+                    <p>本网站所列之字体及其所有相关信息均来自网络收集或网友提供，本网站对信息的准确性不提供任何担保，不承担任何责任。</p>
+                </div>
             </div>
         </div>
 
