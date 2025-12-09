@@ -664,6 +664,7 @@
             
             if (availableFonts.length > 0) {
                 updateFontPreview(availableFonts[0]);
+                updateLicensePanel(availableFonts[0]);
             }
         }
 
@@ -692,6 +693,59 @@
             updateFontInfo(font);
             updateFontTags(font);
             updateCDNCode(font);
+            updateLicensePanel(font);
+        }
+
+        // 更新许可证面板
+        function updateLicensePanel(font) {
+            const licenseSection = document.querySelector('.license-section');
+            const license = font.license || 'SIL OFL';
+            const author = font.author || 'Font Designers';
+            
+            // 根据许可证类型生成不同的许可信息
+            let licenseContent = '';
+            
+            if (license.includes('SIL') || license.includes('Open Font')) {
+                licenseContent = `
+                    <p style="margin-bottom: 15px;">
+                        <strong>本字体以${license}授权协议发布，这个授权的自由度非常高:</strong>
+                    </p>
+
+                    <div class="license-item allow">
+                        <strong>使用不受限</strong>：这款字体无论是个人还是企业都可以自由免費商用，无需知会或者标明原作者。
+                    </div>
+
+                    <div class="license-item allow">
+                        <strong>传播不受限</strong>：这款字体可以自由传播、分享，或者将字体安装于系统、软件或APP中也是允许的，可以与任何软件捆绑再分发以及/或一并销售。
+                    </div>
+
+                    <div class="license-item allow">
+                        <strong>修改不受限</strong>：这款字体可以自由修改、改造，但修改或改造后的字体也必须同样以${license}授权公开。
+                    </div>
+
+                    <div class="license-item forbid">
+                        <strong>禁止违法使用</strong>：这款字体禁止用于违法行为，如因使用这款字体产生纷争或法律诉讼，作者不承担任何责任。
+                    </div>
+
+                    <div class="license-item forbid">
+                        <strong>禁止单独销售</strong>：根据${license}的规定，禁止单独出售字体文件(OTF/TTF文件)的行为。
+                    </div>
+
+                    <p style="margin-top: 20px; color: #999; font-size: 0.85em;">
+                        <strong>字体作者：</strong>${author} | <strong>许可证：</strong>${license}
+                    </p>
+                    <p style="margin-top: 10px; color: #999; font-size: 0.85em;">
+                        关于${license}授权协议的内容、免责事项等详细细节，请查看详细的License授权文件的内容。
+                    </p>
+                `;
+            }
+            
+            licenseSection.innerHTML = `
+                <div class="license-title">📄 使用许可</div>
+                <div class="license-content">
+                    ${licenseContent}
+                </div>
+            `;
         }
 
         // 更新字体信息
