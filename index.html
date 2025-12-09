@@ -743,16 +743,31 @@
         function updateCDNCode(font) {
             const codeInput = document.getElementById('codeInput');
             
-            let code = `<!-- ${font.name} Font CDN Code -->
+            // 使用 jsDelivr CDN (更快更稳定)
+            const cdnUrl = `https://cdn.jsdelivr.net/gh/MMing1999/Fonts@main/fonts/${font.file}`;
+            const fileExt = font.file.split('.').pop().toLowerCase();
+            const format = fileExt === 'otf' ? 'opentype' : 'truetype';
+            
+            const cdnCode = `<!-- ${font.name} Font CDN Code -->
 <style>
   @font-face {
     font-family: "${font.fontFamily}";
-    src: url("./fonts/${font.file}") format("${font.file.split('.').pop() === 'otf' ? 'opentype' : 'truetype'}");
+    src: url("${cdnUrl}") format("${format}");
   }
   .${font.fontFamily} { font-family: "${font.fontFamily}", monospace; }
 </style>`;
             
-            codeInput.value = code;
+            // 生成完整的提示词 + CDN 代码
+            const fullContent = `接下来我们引入这个字体作为全局字体：
+
+${cdnUrl}
+
+${cdnCode}`;
+            
+            // 在 textarea 中显示 CDN 代码
+            codeInput.value = cdnCode;
+            // 将完整内容（包含提示词）存储在 data 属性中
+            codeInput.dataset.fullContent = fullContent;
         }
 
         // 复制代码到剪贴板
@@ -760,22 +775,47 @@
             const codeInput = document.getElementById('codeInput');
             const copyBtn = document.getElementById('codeCopyBtn');
             
-            if (!codeInput.value) {
+            // 优先使用完整内容（包含提示词），否则使用基础代码
+            const contentToCopy = codeInput.dataset.fullContent || codeInput.value;
+            
+            if (!contentToCopy) {
                 alert('没有代码可复制');
                 return;
             }
             
-            codeInput.select();
-            document.execCommand('copy');
-            
-            const originalText = copyBtn.textContent;
-            copyBtn.textContent = 'Copied!';
-            copyBtn.classList.add('copied');
-            
-            setTimeout(() => {
-                copyBtn.textContent = originalText;
-                copyBtn.classList.remove('copied');
-            }, 2000);
+            // 使用现代 Clipboard API
+            navigator.clipboard.writeText(contentToCopy).then(() => {
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = '已复制!';
+                copyBtn.classList.add('copied');
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                // 降级方案：使用传统方法
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = contentToCopy;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    
+                    const originalText = copyBtn.textContent;
+                    copyBtn.textContent = '已复制!';
+                    copyBtn.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        copyBtn.textContent = originalText;
+                        copyBtn.classList.remove('copied');
+                    }, 2000);
+                } catch (error) {
+                    console.error('复制失败:', error);
+                    alert('复制失败，请手动选择复制');
+                }
+            });
         }
 
         // 页面加载完成后初始化
