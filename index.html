@@ -604,7 +604,7 @@
         let currentFontName = null;
         let currentFontFile = null;
         
-        // 字体加载状态追踪
+        // 字体加载状态追踪（用于预览区的完整字体）
         const fontLoadStatus = {};  // 格式: { fontFamily: 'loading' | 'loaded' | 'error' }
 
         // 动态加载字体（带状态跟踪）
@@ -688,10 +688,42 @@
             });
         }
 
-        // 初始化字体列表（不加载字体，只初始化UI）
+        // 创建字体列表样式（用最少的字符加载字体样式）
+        function createFontListStyles() {
+            let styleSheet = document.getElementById('font-list-styles');
+            if (!styleSheet) {
+                styleSheet = document.createElement('style');
+                styleSheet.id = 'font-list-styles';
+                document.head.appendChild(styleSheet);
+            }
+            
+            let cssRules = '';
+            
+            // 为每个字体添加样式规则（只用于列表显示）
+            availableFonts.forEach(font => {
+                const githubRawPath = `https://raw.githubusercontent.com/MMing1999/Fonts/main/fonts/${font.file}`;
+                cssRules += `
+                    [data-font="${font.fontFamily}"] {
+                        font-family: "${font.fontFamily}-list", system-ui, sans-serif;
+                    }
+                    @font-face {
+                        font-family: "${font.fontFamily}-list";
+                        src: url('${githubRawPath}') format('${font.file.endsWith('.otf') ? 'opentype' : 'truetype'}');
+                        font-display: swap;  /* 先用系统字体显示，字体加载后再替换 */
+                    }
+                `;
+            });
+            
+            styleSheet.textContent = cssRules;
+        }
+        
+        // 初始化字体列表（立即显示用对应字体样式渲染的列表）
         function initFontList() {
             const fontList = document.getElementById('fontList');
             fontList.innerHTML = '';
+            
+            // 首先创建字体列表样式
+            createFontListStyles();
             
             // 分组字体
             const groupedFonts = {};
@@ -730,8 +762,8 @@
                     if (font.isFirst) subitem.classList.add('active');
                     subitem.setAttribute('data-font', font.fontFamily);
                     subitem.setAttribute('data-font-name', font.name);
-                    subitem.textContent = font.name;
-                    subitem.style.fontFamily = `"system-ui", sans-serif`;  // 先用系统字体显示
+                    subitem.textContent = font.name;  // 字体名称用对应字体显示
+                    // 通过CSS中定义的字体样式，自动应用对应字体
                     
                     subitem.addEventListener('click', function(e) {
                         e.stopPropagation();
@@ -742,9 +774,9 @@
                         currentFontName = font.name;
                         currentFontFile = font.file;
                         
-                        // 按需加载字体
+                        // 按需加载完整字体文件（用于预览区）
                         loadFontFace(font.fontFamily, font.file);
-                        // 立即更新预览（字体加载时会逐步应用）
+                        // 立即更新预览
                         updateFontPreview(font);
                         updateLicensePanel(font);
                     });
@@ -770,8 +802,8 @@
                 if (font.isFirst) li.classList.add('active');
                 li.setAttribute('data-font', font.fontFamily);
                 li.setAttribute('data-font-name', font.name);
-                li.textContent = font.name;
-                li.style.fontFamily = `"system-ui", sans-serif`;  // 先用系统字体显示
+                li.textContent = font.name;  // 字体名称用对应字体显示
+                // 通过CSS中定义的字体样式，自动应用对应字体
                 
                 li.addEventListener('click', function() {
                     document.querySelectorAll('.font-item, .font-subitem').forEach(item => item.classList.remove('active'));
@@ -781,9 +813,9 @@
                     currentFontName = font.name;
                     currentFontFile = font.file;
                     
-                    // 按需加载字体
+                    // 按需加载完整字体文件（用于预览区）
                     loadFontFace(font.fontFamily, font.file);
-                    // 立即更新预览（字体加载时会逐步应用）
+                    // 立即更新预览
                     updateFontPreview(font);
                     updateLicensePanel(font);
                 });
