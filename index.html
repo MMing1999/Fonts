@@ -501,44 +501,43 @@
         // 可用的字体列表
         const availableFonts = [
             // 阿里巴巴普惠字体系列
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 35 Thin', file: 'AlibabaPuHuiTi-3-35-Thin.ttf', fontFamily: 'AlibabaPuHuiTi_35_Thin', tags: ['free', 'commercial'] },
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 55 Regular', file: 'AlibabaPuHuiTi-3-55-Regular.ttf', fontFamily: 'AlibabaPuHuiTi_55_Regular', tags: ['free', 'commercial'] },
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 55 RegularL3', file: 'AlibabaPuHuiTi-3-55-RegularL3.ttf', fontFamily: 'AlibabaPuHuiTi_55_RegularL3', tags: ['free', 'commercial'] },
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 65 Medium', file: 'AlibabaPuHuiTi-3-65-Medium.ttf', fontFamily: 'AlibabaPuHuiTi_65_Medium', tags: ['free', 'commercial'] },
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 75 SemiBold', file: 'AlibabaPuHuiTi-3-75-SemiBold.ttf', fontFamily: 'AlibabaPuHuiTi_75_SemiBold', tags: ['free', 'commercial'] },
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 85 Bold', file: 'AlibabaPuHuiTi-3-85-Bold.ttf', fontFamily: 'AlibabaPuHuiTi_85_Bold', tags: ['free', 'commercial'] },
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 95 ExtraBold', file: 'AlibabaPuHuiTi-3-95-ExtraBold.ttf', fontFamily: 'AlibabaPuHuiTi_95_ExtraBold', tags: ['free', 'commercial'] },
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 105 Heavy', file: 'AlibabaPuHuiTi-3-105-Heavy.ttf', fontFamily: 'AlibabaPuHuiTi_105_Heavy', tags: ['free', 'commercial'] },
-            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 115 Black', file: 'AlibabaPuHuiTi-3-115-Black.ttf', fontFamily: 'AlibabaPuHuiTi_115_Black', tags: ['free', 'commercial'] },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 35 Thin', file: 'AlibabaPuHuiTi-3-35-Thin.ttf', fontFamily: 'AlibabaPuHuiTi_35_Thin', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 55 Regular', file: 'AlibabaPuHuiTi-3-55-Regular.ttf', fontFamily: 'AlibabaPuHuiTi_55_Regular', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 55 RegularL3', file: 'AlibabaPuHuiTi-3-55-RegularL3.ttf', fontFamily: 'AlibabaPuHuiTi_55_RegularL3', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 65 Medium', file: 'AlibabaPuHuiTi-3-65-Medium.ttf', fontFamily: 'AlibabaPuHuiTi_65_Medium', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 75 SemiBold', file: 'AlibabaPuHuiTi-3-75-SemiBold.ttf', fontFamily: 'AlibabaPuHuiTi_75_SemiBold', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 85 Bold', file: 'AlibabaPuHuiTi-3-85-Bold.ttf', fontFamily: 'AlibabaPuHuiTi_85_Bold', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 95 ExtraBold', file: 'AlibabaPuHuiTi-3-95-ExtraBold.ttf', fontFamily: 'AlibabaPuHuiTi_95_ExtraBold', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 105 Heavy', file: 'AlibabaPuHuiTi-3-105-Heavy.ttf', fontFamily: 'AlibabaPuHuiTi_105_Heavy', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
+            { group: 'Alibaba Pu Hui Ti', name: 'Alibaba Pu Hui Ti - 115 Black', file: 'AlibabaPuHuiTi-3-115-Black.ttf', fontFamily: 'AlibabaPuHuiTi_115_Black', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
             // 阿里妈妈字体
-            { name: 'Alibaba ShuHei Ti - Bold', file: 'AlimamaShuHeiTi-Bold.ttf', fontFamily: 'AlimamaShuHeiTi_Bold', tags: ['free', 'commercial'] },
+            { name: 'Alibaba ShuHei Ti - Bold', file: 'AlimamaShuHeiTi-Bold.ttf', fontFamily: 'AlimamaShuHeiTi_Bold', tags: ['free', 'commercial'], license: 'Open Font License', author: '阿里巴巴' },
             // BoutiqueBitmap9x9 系列
-            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 3D', file: 'BoutiqueBitmap9x9_3D.ttf', fontFamily: 'BoutiqueBitmap9x9_3D', tags: ['free', 'commercial'] },
-            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 Blur', file: 'BoutiqueBitmap9x9_Blur.ttf', fontFamily: 'BoutiqueBitmap9x9_Blur', tags: ['free', 'commercial'] },
-            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 Circle Dot', file: 'BoutiqueBitmap9x9_Circle_Dot.ttf', fontFamily: 'BoutiqueBitmap9x9_Circle_Dot', tags: ['free', 'commercial'] },
-            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 Gradient', file: 'BoutiqueBitmap9x9_Gradient.ttf', fontFamily: 'BoutiqueBitmap9x9_Gradient', tags: ['free', 'commercial'] },
-            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 Square Dot', file: 'BoutiqueBitmap9x9_Square_Dot.ttf', fontFamily: 'BoutiqueBitmap9x9_Square_Dot', tags: ['free', 'commercial'] },
+            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 3D', file: 'BoutiqueBitmap9x9_3D.ttf', fontFamily: 'BoutiqueBitmap9x9_3D', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Boutique Bitmap Fonts' },
+            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 Blur', file: 'BoutiqueBitmap9x9_Blur.ttf', fontFamily: 'BoutiqueBitmap9x9_Blur', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Boutique Bitmap Fonts' },
+            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 Circle Dot', file: 'BoutiqueBitmap9x9_Circle_Dot.ttf', fontFamily: 'BoutiqueBitmap9x9_Circle_Dot', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Boutique Bitmap Fonts' },
+            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 Gradient', file: 'BoutiqueBitmap9x9_Gradient.ttf', fontFamily: 'BoutiqueBitmap9x9_Gradient', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Boutique Bitmap Fonts' },
+            { group: 'BoutiqueBitmap9x9', name: 'BoutiqueBitmap9x9 Square Dot', file: 'BoutiqueBitmap9x9_Square_Dot.ttf', fontFamily: 'BoutiqueBitmap9x9_Square_Dot', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Boutique Bitmap Fonts' },
             // 其他单独字体
-            { name: 'DingTalk JinBu Ti', file: 'DingTalk JinBuTi.ttf', fontFamily: 'DingTalk_JinBuTi', tags: ['free', 'commercial'] },
+            { name: 'DingTalk JinBu Ti', file: 'DingTalk JinBuTi.ttf', fontFamily: 'DingTalk_JinBuTi', tags: ['free', 'commercial'], license: 'Open Font License', author: '钉钉' },
             // HarmonyOS Sans SC 系列
-            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Thin', file: 'HarmonyOS_Sans_SC_Thin.ttf', fontFamily: 'HarmonyOS_Sans_SC_Thin', tags: ['free', 'commercial'] },
-            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Light', file: 'HarmonyOS_Sans_SC_Light.ttf', fontFamily: 'HarmonyOS_Sans_SC_Light', tags: ['free', 'commercial'] },
-            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Regular', file: 'HarmonyOS_Sans_SC_Regular.ttf', fontFamily: 'HarmonyOS_Sans_SC_Regular', tags: ['free', 'commercial'] },
-            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Medium', file: 'HarmonyOS_Sans_SC_Medium.ttf', fontFamily: 'HarmonyOS_Sans_SC_Medium', tags: ['free', 'commercial'] },
-            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Bold', file: 'HarmonyOS_Sans_SC_Bold.ttf', fontFamily: 'HarmonyOS_Sans_SC_Bold', tags: ['free', 'commercial'] },
-            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Black', file: 'HarmonyOS_Sans_SC_Black.ttf', fontFamily: 'HarmonyOS_Sans_SC_Black', tags: ['free', 'commercial'] },
+            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Thin', file: 'HarmonyOS_Sans_SC_Thin.ttf', fontFamily: 'HarmonyOS_Sans_SC_Thin', tags: ['free', 'commercial'], license: 'Open Font License', author: '华为' },
+            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Light', file: 'HarmonyOS_Sans_SC_Light.ttf', fontFamily: 'HarmonyOS_Sans_SC_Light', tags: ['free', 'commercial'], license: 'Open Font License', author: '华为' },
+            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Regular', file: 'HarmonyOS_Sans_SC_Regular.ttf', fontFamily: 'HarmonyOS_Sans_SC_Regular', tags: ['free', 'commercial'], license: 'Open Font License', author: '华为' },
+            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Medium', file: 'HarmonyOS_Sans_SC_Medium.ttf', fontFamily: 'HarmonyOS_Sans_SC_Medium', tags: ['free', 'commercial'], license: 'Open Font License', author: '华为' },
+            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Bold', file: 'HarmonyOS_Sans_SC_Bold.ttf', fontFamily: 'HarmonyOS_Sans_SC_Bold', tags: ['free', 'commercial'], license: 'Open Font License', author: '华为' },
+            { group: 'HarmonyOS Sans SC', name: 'HarmonyOS Sans SC - Black', file: 'HarmonyOS_Sans_SC_Black.ttf', fontFamily: 'HarmonyOS_Sans_SC_Black', tags: ['free', 'commercial'], license: 'Open Font License', author: '华为' },
             // Inter 系列
-            { group: 'Inter', name: 'Inter - Variable', file: 'InterVariable.ttf', fontFamily: 'Inter_Variable', tags: ['free', 'commercial'] },
-            { group: 'Inter', name: 'Inter - Variable Italic', file: 'InterVariable-Italic.ttf', fontFamily: 'Inter_Variable_Italic', tags: ['free', 'commercial'] },
+            { group: 'Inter', name: 'Inter - Variable', file: 'InterVariable.ttf', fontFamily: 'Inter_Variable', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Rasmus Andersson' },
+            { group: 'Inter', name: 'Inter - Variable Italic', file: 'InterVariable-Italic.ttf', fontFamily: 'Inter_Variable_Italic', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Rasmus Andersson' },
             // Maoken Assorted Sans 系列
-            // { group: 'Maoken Assorted Sans', name: 'Maoken Assorted Sans - Lite', file: 'MaokenAssortedSans-Lite.otf', fontFamily: 'MaokenAssortedSans_Lite', tags: ['free', 'commercial'] },
-            { group: 'Maoken Assorted Sans', name: 'Maoken Assorted Sans', file: 'MaokenAssortedSans.otf', fontFamily: 'MaokenAssortedSans', tags: ['free', 'commercial'] },
+            { group: 'Maoken Assorted Sans', name: 'Maoken Assorted Sans', file: 'MaokenAssortedSans.otf', fontFamily: 'MaokenAssortedSans', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Maoken' },
             // 其他单独字体
-            { name: 'Smiley Sans - Oblique', file: 'SmileySans-Oblique.otf', fontFamily: 'SmileySans_Oblique', tags: ['free', 'commercial'] },
-            { name: 'TaoBao MaiCai Ti - Regular', file: 'TaoBaoMaiCaiTi-Regular.ttf', fontFamily: 'TaoBaoMaiCaiTi_Regular', tags: ['free', 'commercial'] },
-            { name: 'Uranus Pixel 11px', file: 'Uranus_Pixel_11Px.ttf', fontFamily: 'Uranus_Pixel_11Px', tags: ['free', 'commercial'] },
-            { name: 'ARK Pixel 12px', file: 'ark-pixel-12px-monospaced-zh_cn.otf', fontFamily: 'ARK_Pixel_12px', tags: ['free', 'opensource', 'commercial'] },
-            { name: '字制区喜脉体', file: '字制区喜脉体.otf', fontFamily: 'ZiZhiQu_XiMai', tags: ['free', 'commercial'] }
+            { name: 'Smiley Sans - Oblique', file: 'SmileySans-Oblique.otf', fontFamily: 'SmileySans_Oblique', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Smiley Sans' },
+            { name: 'TaoBao MaiCai Ti - Regular', file: 'TaoBaoMaiCaiTi-Regular.ttf', fontFamily: 'TaoBaoMaiCaiTi_Regular', tags: ['free', 'commercial'], license: 'Open Font License', author: '淘宝' },
+            { name: 'Uranus Pixel 11px', file: 'Uranus_Pixel_11Px.ttf', fontFamily: 'Uranus_Pixel_11Px', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: 'Uranus Fonts' },
+            { name: 'ARK Pixel 12px', file: 'ark-pixel-12px-monospaced-zh_cn.otf', fontFamily: 'ARK_Pixel_12px', tags: ['free', 'opensource', 'commercial'], license: 'SIL Open Font License', author: 'TakWolf' },
+            { name: '字制区喜脉体', file: '字制区喜脉体.otf', fontFamily: 'ZiZhiQu_XiMai', tags: ['free', 'commercial'], license: 'SIL Open Font License', author: '字制区' }
         ];
 
         let currentFont = null;
@@ -699,6 +698,10 @@
         function updateFontInfo(font) {
             const fontInfoPanel = document.getElementById('fontInfoPanel');
             
+            // 获取版权信息
+            const license = font.license || 'SIL OFL';
+            const author = font.author || 'Font Designers';
+            
             fontInfoPanel.innerHTML = `
                 <div class="font-info-item">
                     <span class="font-info-label">Font Full Name / 字体全名</span>
@@ -708,11 +711,11 @@
                 </div>
                 <div class="font-info-item">
                     <span class="font-info-label">License / 许可证</span>
-                    <div class="license-tag preview-content">SIL OFL</div>
+                    <div class="license-tag preview-content">${license}</div>
                 </div>
                 <div class="font-info-item">
-                    <span class="font-info-label">Copyright / 版权</span>
-                    <div class="font-info-content preview-content">© Font Designers</div>
+                    <span class="font-info-label">Author / 作者</span>
+                    <div class="font-info-content preview-content">© ${author}</div>
                 </div>
             `;
         }
